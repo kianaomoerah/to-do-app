@@ -83,10 +83,20 @@ ul.addEventListener('click', function (e){
         // toggle between checked/unchecked (AKA done vs not done) on the target element:
         e.target.classList.toggle('fa-square-check');
         e.target.classList.toggle('fa-square');
+        e.target.parentNode.classList.toggle('text-muted');
     }
 
 });
 
+const clearButton = document.querySelector('button');
+
+clearButton.addEventListener('click', function(e){
+    console.log('you clicked my button')
+    const checkedItems = document.querySelectorAll('.text-muted');
+    for (let i = 0; i < checkedItems.length; i += 1) {
+        checkedItems[i].remove();
+    }
+})
 // BONUS LEVEL:
 // add a "Reset" button which clears all of the TO DOs
 // add an "Edit task" button
